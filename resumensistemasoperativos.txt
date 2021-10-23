@@ -55,7 +55,7 @@ Windows 10 /Microsoft 2016
 		Monousuario 
 			Sólo puede atender a un usuario a la vez
 		Multiusuario 
-			Puede atender a varios usuarios al mismo tiempo
+			Puede identificar y asignar privilegios a varios usuarios
 	Funciones y entorno del trabajo de un sistema operativo
 		Administrar recursos 
 	Sistema operativo con interfaz gráfica
