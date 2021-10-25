@@ -10,7 +10,7 @@ print ()
   
 with open('myfile.txt', 'w') as fp: #Crea el archivo (w = solo escritura, w+ escritura y lectura, a para concatenar, a+ para concatenar y leer) 
     pass
-    fp.write("New file created") #Escribe en el archivo
+    fp.write("Nuevo documento") #Escribe en el archivo
 
 dir_list = os.listdir(path) #Actualiza la lista de directorios
 print("Lista de archivos y directorios despues de crear:")
