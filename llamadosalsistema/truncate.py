@@ -7,6 +7,10 @@ with open('myfile.txt', 'w') as fp:
     pass
     fp.write("Documento")
 
+with open('myfile.txt', 'r') as fp: 
+    pass
+    print(fp.read())  #el archivo completo 
+
 path_archivo = 'D:/Estudio/Python/myfile.txt' 
 os.truncate(path_archivo, 3) #No deja que tenga más de 3 bytes de tamaño
 
