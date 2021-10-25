@@ -15,3 +15,5 @@ with open('myfile.txt', 'w') as fp: #Crea el archivo (w = solo escritura, r lect
 dir_list = os.listdir(path) #Actualiza la lista de directorios
 print("Lista de archivos y directorios despues de crear:")
 print(dir_list)
+
+os.remove('myfile.txt')
