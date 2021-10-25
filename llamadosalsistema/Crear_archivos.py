@@ -1,3 +1,5 @@
+import os 
+
 path = 'D:/Python'  #Directorio 
 os.chdir(path)
 
