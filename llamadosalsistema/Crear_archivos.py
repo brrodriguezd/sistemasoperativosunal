@@ -8,7 +8,7 @@ print("Lista de archivos y directorios antes de crear:")
 print(dir_list)
 print ()
   
-with open('myfile.txt', 'w') as fp: #Crea el archivo (w = solo escritura, w+ escritura y lectura, a para concatenar, a+ para concatenar y leer) 
+with open('myfile.txt', 'w') as fp: #Crea el archivo (w = solo escritura, r lectura, w+ escritura y lectura, a para concatenar, a+ para concatenar y leer) 
     pass
     fp.write("Nuevo documento") #Escribe en el archivo
 
