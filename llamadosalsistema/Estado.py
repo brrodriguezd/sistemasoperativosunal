@@ -12,3 +12,5 @@ status = os.stat(path_archivo) #Guarda el estado
 
 print(status)             #Muestra todas las estadísticas 
 print(status.st_size)     #Muestra una estadística específica
+
+os.remove('myfile.txt')
