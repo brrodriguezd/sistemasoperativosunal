@@ -1,3 +1,4 @@
+from abc import abstractclassmethod
 import os 
 
 path = 'D:/Estudio/Python' 
