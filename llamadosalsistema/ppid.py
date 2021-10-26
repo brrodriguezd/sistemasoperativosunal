@@ -5,6 +5,6 @@ path = 'D:/Estudio/Python'
 
 os.chdir(path)
   
-id = os.getppid()  #Obtiene el id del proceso padre
+id_pp = os.getppid()  #Obtiene el id del proceso padre
 
-print (id)
+print (id_pp)
