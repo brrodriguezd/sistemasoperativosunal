@@ -1,0 +1,169 @@
+Llamadas de sistema
+	Interfaz de programación a los sevicios del SO
+	Usualmente en alto nivel 
+	Accedido normalmente a través de un API
+	API's populares: Win32, POSIX, Java API
+		permite usar funciones para usar funciones y recibir datos estructurados de manera rapida
+		ejemplo API estandar (ssize_t read(int fd, void, *buf)
+		return_value function_name(parameters)
+	
+	Ejemplo 
+		copiar un archivo (cp origen destino), desencadena varias llamadas al sistema
+	
+	Tipos de llamadas al sistema 
+        	Control de procesos
+			Crear, terminar
+			Finalizar abortar
+            		Cargar o ejecutar
+			Obtener o fijar atributos 
+            		Mantener en espera por un tiempo 
+            		Esperar o generar señales
+            		Asignar o liberar memoria
+            		Volcar memoria
+            		Depurador para bugs, realizar ejecucion paso a paso 
+            		Bloqueos
+		Manejos de archivos 
+			Crear, terminar archivos
+			Abrir cerrar
+			Leer, escribir, reposicionar 
+		        Obtener y fijar atributos 
+			Manejo de dispositivos
+			Requerir liberar dispositivos
+            		Leer escribir y reposicionar 
+            		Obtener y fijar atributos de dispositivos
+          		Conectar o desconectar dispositivos lógicos
+		Manejo de informacion
+          		Obtener o fijar fecha y hora
+            		Obtener y fijar datos del sistema
+            		Obtener y fijar atributos de procesos, archivos y dispositivos 
+		Comunicaciones 
+            		Crear, eliminar conexión 
+            		Modelo de paso de mensajes
+            		Modelo de memoria compartida
+		Protección 
+            		Controlar accesos a los recursos 
+            		Obtener y fijar permisos
+            		Permitir y denegar acceso a usuarios
+	
+	Funcion --> Trap --> OS 
+	      cambio de modo (impacta el rendimiento del sistema)
+	
+	Ejemplos
+		MS-DOS
+			Single-tasking
+			Se invoca el shell al inicio (booting)
+			Método simple para ejectuar programas 
+			Géstion del espacio de memoria simple 
+			Cuando el programa finaliza el interprete se recarga
+			Kernel --> cmd interpreter --> Free memory 
+		Free-BSD
+			Variante de Unix
+			Multitasking 
+			Usuario ejecuta comandos en el shell
+			Shell ejectura llamada al sistema fork() para crear un proceso 
+				Ejecuta exec() para cargar el nuevo programa a memoria
+				El shell espera la terminación del programa	
+				El proceso finaliza con 0(satisfactoriamente) o >0 *(erroneamente)
+			Kernel --> process B --> cmd interpreter --> process C --> Free memory --> process Dñ
+Interfaz 
+	Herramienta que permiten comunicarse con algo.
+Estructuras de los sistemas operativos
+	Arquitectura y estructuras
+		Influida por el hardware, pero algunos componentes comunes son el nucleo y las llamadas al sistema
+ 		
+		Sistemas monolíticos
+			Son los mas comunes, y menos complejos, 
+			Todos los componentes de gestión y programas de sistema están escritos en un mismo código
+			Puede decirse que el núcleo es el sistema operativo, la división mas evidente que puede hacerse es entre procesos de aplicación o usuario y procesos del sistema
+			
+			Ventajas 
+				Son veloces, la demora ára ejecutar las llamadas del sistema es minima
+			Desventajas
+				Si ocurre algún fallo del hardware o existe algún error, se depurará en el código del sistema
+		Sistemas por capas o niveles de privilegio
+			Incorpora mecanismos de proteccción para la gestión de procesos, memoria y entrada y salida 
+			Su objetivo es separar la acción del código de los procesos del sistema, del núcleo y de los procesos del usuario
+			
+			Capas 
+				0 Asignación del procesador y multiprogramación 
+				1 Administración de memoria y tambor 
+				2 Comunicación operador-proceso
+				3 Administrador de entrada/salida 
+				4 Programas de usuario 
+				5 El operador
+			
+			Ventajas 
+				Depuración y verificación de procesos por capas
+			Desventajas 
+				Exceso consumo de recursos
+				Llamadas entre capas, exigé el envio de parámetros entre capas, equivalentes a una llamada del sistema
+		Sistemas de micronúcleo (microkernel)
+			Núcleo de la estructura, es muy reducido, con sólo los compenentes fundamentales para el fucionamiento del sistema operativo
+		 	Las aplicaciones se encuentran en en su propia dirección de hardware, se ejecuta en modo privilegiado para proveer servicios esenciales (Abstracciones de procesos, hilos, intercomunicacion de procesos, primitivas de administración de memoria)
+			El núcleo solo soporta un reducido número de mecanismos, no directivas
+			Los servicios de sistema operativo (sistema de archivos, administrador de procesos, administrador de memoria, etc), se implementan en modo usuario encima del microkernel, dividiendo el modo de ejecución de los procesos de dos maneras, modo usuario y modo kernel
+		
+			Modo usuario
+				Servicios del sistema se ejecutan con los mismos privilegios de las aplicaciones del usuario, cada servicio se encuentra en su propia dirección de memoria, protegiendose entre ellos y de las aplicaciones
+			Modo kernel
+				Protegido de los servicios y las aplicaciones, este aislamiento permite dividir el sistema en pequeños módulos bien definidos
+				Se necesita microkernel para la intercomunicación de procesos, aplicaciones y servicios no interactuan directamente.
+			
+			Ventajas
+				Extensibilidad, mayor seguridad y fiabilidad, simplicidad, uniformidad de interfaces
+			Desventajas
+				Bajo rendimiento, bajo desempeño, complejidad en la sincronizidad de los módulos
+	
+			Ejemplos
+				Minix
+					SO 1987, modularidad, comprensión, multiprocesos y multiusuarios
+					Similar a UNIX (Comandos, Shell, llamadas al sistema)
+					Aplicaciones que requieran alta fiabilidad, notebooks con pocos recursos, sistema embebidos 
+					
+			Caracteristicas 
+				Multiusuario, multiprogramación, multiplataforma, tolerancia a fallas, mas de 400 programas unix, acceso al código de c completo, minimos requerimientos
+
+			Estructura
+				4 niveles
+					Kernel: atiende interrupciones, planifica tareas y procesos, maneja interrupciones
+					Drivers: tareas de entrada y salida
+					Servicios: manejo de memoria, servidor de red, manejo de ficheros, etc
+					Procesos: de usuario, shell, compiladores, etc.
+		Sistemas cliente-servidor 
+			El objetivo fundamental del núcleo es garantizar la comunicación entre procesos
+			En cada sistema independiente solo estarán el núcleo y los componentes mínimos para la ejecución de algunos procesos 
+			Se manifesta con mayor peso la necesidad de establecer llamadas al sistema robustas, para la comunicación entre procesos
+			Cada proceso actúa como servidor del resto
+			
+			Ventajas
+				Centralización del control 
+				Escalabilidad
+				Fácil mantenimiento
+			Desventajas
+				Congestión de tráfico 
+				Se necesita software y hardware específico, sobre todo en el lado del servidor
+ 
+Multiproceso o multitarea
+	Abstaer la memoria, Abstraer el procesador(con el concepto de proceso), Abstraer los periféricos 
+	
+	Colaborativa (Sin soporte de hardware)
+		Todos los programas:
+			Devuelven la CPU cuando necesitan algo de un periférico o despues de cierto tiempo
+			Entrar solamente a las zonas de memoria asignadas por el S.O
+	Con soporte del hardware
+		CPU puede distinguir entre el código del SO y el de los demás procesos
+		
+		Normalmente se implementa con un sistema de anillos de ejecución 
+			El primer programa que se ejecuta en la CPU la recibe en el anillo 1 (SO)
+			El S.O. utiliza un salto para ejecutar código de un programa de usuario
+			Cuando se produce una interrupción de la CPU ejecuta el código de atención de la interrupción en el anillo 1 (volver de 2 a 1)
+		
+		Soporte de interrupciones 
+			Mecanismo para interrumpir a la CPU, guarda el estado interno de la CPU, ejecutando un código ya especificado por el sistema operativo
+			
+		Como se produce una interrupción
+			Por hardware: un dispositivo avisa a la CPU que tiene una novedad. A través de lineas de solicitud de interrupción (IRQ)
+			Por excepción: La CPU se interrumpe a si misma.
+			Por software: El programa que está corriendo se interrumpe a sí mismo.		
+
+			
