@@ -81,7 +81,7 @@ async def S_horizontal():                 												 #Igual que la vertical
     print ("Rojo \n") 
 
 def U_input():
-    print("Cúantos ciclos de semáforo: (24 seg por ciclo)")  												 #Pide al usuario el número de ciclos y maneja errores
+    print("Cúantos ciclos de semáforo: (24 seg por ciclo)")  		   #Pide al usuario el número de ciclos y maneja errores
     u_input = input()
     try:
         u_input = int(u_input)
