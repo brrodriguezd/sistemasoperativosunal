@@ -7,10 +7,10 @@ async def Semaforo(u_input):
     for i in range (u_input):
         print ("Inicia el semáforo vertical (ciclo ", i+1, ")")       
         await S_vertical()                #Espera a que termina el semáforo vertical
-        await asyncio.sleep(5)            #Cuenta el ciclo del semáforo en rojo
+        await asyncio.sleep(6)            #Cuenta el ciclo del semáforo en rojo
         print ("Inicia el semáforo horizontal")
         print ("\nAmarillo")
-        await asyncio.sleep(2)
+        await asyncio.sleep(3)            #Cuenta el ciclo de amarillo
         await S_horizontal()
 
 async def carros():
@@ -33,9 +33,9 @@ async def carros():
 async def S_vertical():     
     print("\nVerde \n")
     task = asyncio.create_task(carros())  #Hace una tarea en simultaneo, que cuenta carros
-    await asyncio.sleep(6)                #Espera a que cuente 5 para cambiar 
+    await asyncio.sleep(6)                #Espera a que cuente 7 para cambiar 
     print ("\nAmarillo \n") 
-    await asyncio.sleep(3)                #Espera a que cuente 2 para cambiar
+    await asyncio.sleep(3)                #Espera a que cuente 3 para cambiar
     print ("Rojo \n")
 
 async def S_horizontal():                 #Igual que la vertical
@@ -60,6 +60,6 @@ def U_input():
             print("Ingrese un número entero positivo\n")
             U_input()
         else:
-            asyncio.run(Semaforo(u_input))    #Llama la función async
+            asyncio.run(Semaforo(u_input))    #Llama la función async desde una no async
 
 U_input()
