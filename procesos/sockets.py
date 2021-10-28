@@ -1,7 +1,7 @@
 import socket 
-
+#Use de base el código donde anote lo que leí de la página web, y no olvide quitar las anotaciones xD
 HOST = '127.0.0.1'  # Standard IPv4 loopback interface address (localhost)
-PORT = 65432        # Port to listen on (non-privileged ports are > 1023) 
+PORT = 65432        # 80 http 21 ftp 443 https # Port to listen on (non-privileged ports are > 1023) 
 #port int 1-65535       (0 reserved) ... Some systems may require superuser privileges if the port is < 1024.
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: #AF_INET internet adress family IPv4. 
@@ -19,9 +19,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: #AF_INET internet a
     with conn:                      #no need to close
         print('Connected by', addr) #Prints confirmation and conn info
         while True:                 #Infinite loop over blocking call to conn.recv()
-            script = bytes("Are you there...?", 'utf-8')
-            conn.sendall(script)
-            data = conn.recv(1024)
+            script = bytes("Are you there...?", 'utf-8')            #manda el guión códificado
+            conn.sendall(script)                                        
+            data = conn.recv(1024)                                   #recibe la respuesta para continuar
             script = bytes("I can barely hear you... I'm afraid there's not much time left, I'm stuck in this place... It's dark...", 'utf-8')
             conn.sendall(script)
             data = conn.recv(1024)
@@ -37,5 +37,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: #AF_INET internet a
             script = bytes("Connection severed", 'utf-8')
             conn.sendall(script)
 #            if not data:            #If client sends empty data the connection and the loop are terminated
-            break
+            break                    #una vez termina el guión termina el proceso
 #Open terminal, run server, open another terminal and run server 
