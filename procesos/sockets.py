@@ -38,5 +38,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: #AF_INET internet a
             conn.sendall(script)
 #            if not data:            #If client sends empty data the connection and the loop are terminated
             break
-    s.close()
 #Open terminal, run server, open another terminal and run server 
