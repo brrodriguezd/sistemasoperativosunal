@@ -7,11 +7,13 @@ PORT = 65432        # The port used by the server
 
 chdir('/home/camilo/Documentos/Python')
 
+#Descifra los bytes que llegas
 async def descifrar(a):
     a = a.decode('utf-8')
     print (a)                         
     return a
 
+#Separa por ### y crea archivos con el nombre y contenido que fue enviado
 async def escribir(data):
     info = data.split('###')
     for i in range (0,len(info)-1,2):
@@ -29,6 +31,7 @@ async def recibir():
     task = asyncio.create_task(escribir(a))
     while True:
         data = s.recv(1024)
+		#Espera a f para termar el proceso
         if data == (b'f'):
             break
     s.close()
