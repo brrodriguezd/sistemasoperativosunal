@@ -5,16 +5,21 @@ import asyncio
 HOST = '127.0.0.1'
 PORT = 65432
 
-os.chdir('/home/camilo/Documentos/Python')
+dir = '/home/camilo/Documentos/Python'
+os.chdir(dir)
 
 with open('archivo.txt','w') as fp:
     pass
-    fp.write("Archivo importante para pasar")
-
+    fp.write("Crear archivo")
+	
 async def codificar():
-    with open('archivo.txt','r') as fp:
-        pass
-        a = fp.read()
+    a = ''
+    with os.scandir(dir) as it: #scandir(path) regresa un iterador 
+        for entry in it: 
+            if entry.is_file() and entry.name.endswith('.txt'):			#el método is_dir() regresa un valor booleano para determinar si entry es un directorio, mientras el método name.startswith('D') revisa que el directorio empiece con D 
+                with open(entry,'r') as fp:
+                    pass
+                    a = a + entry.name + '###' + fp.read()+ '###'
     a = bytes(a,'utf-8')
     return a
 
@@ -23,7 +28,7 @@ async def enviar():
     s.connect((HOST, PORT))                                      #connects to the server   
     a = await codificar()
     s.send(a)                          
-    print(a.decode('utf-8'))                                   #prints received data
+    print(a)                                   #prints received data
     while True:
         data = s.recv(1024)
         if data == (b'f'):
