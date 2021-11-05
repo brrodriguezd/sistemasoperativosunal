@@ -1,11 +1,11 @@
 import socket
-import os
+from os import chdir
 import asyncio
 
 HOST = '127.0.0.1'  # The server's hostname or IP address
 PORT = 65432        # The port used by the server
 
-os.chdir('/home/camilo/Documentos/Python/FTP')
+chdir('/home/camilo/Documentos/Python')
 
 async def descifrar(a):
     a = a.decode('utf-8')
@@ -13,9 +13,11 @@ async def descifrar(a):
     return a
 
 async def escribir(data):
-    with open('archivo.txt', 'w') as fp:
-        pass
-        fp.write(data)
+    info = data.split('###')
+    for i in range (0,len(info)-1,2):
+        with open(info[1], 'w') as fp:
+            pass
+            fp.write(info[i+1])
         
 async def recibir():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
