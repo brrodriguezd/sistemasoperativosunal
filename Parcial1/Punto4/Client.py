@@ -7,7 +7,7 @@ PORT = 65432        # The port used by the server
 
 chdir('/home/camilo/Documentos/Python')
 
-#Descifra los bytes que llegas
+#Descifra los bytes que llegan
 async def descifrar(a):
     a = a.decode('utf-8')
     print (a)                         
@@ -31,7 +31,7 @@ async def recibir():
     task = asyncio.create_task(escribir(a))
     while True:
         data = s.recv(1024)
-		#Espera a f para termar el proceso
+	#Espera a f para terminar el proceso
         if data == (b'f'):
             break
     s.close()
