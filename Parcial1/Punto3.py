@@ -8,6 +8,7 @@ PORT = 65432
 #directorio
 os.chdir('/home/camilo/Documentos/HTML')
 
+#crea un html para el ejemplo
 with open('intro.html', 'w') as fp:
     pass
     fp.write(
