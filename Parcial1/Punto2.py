@@ -36,9 +36,9 @@ async def conectarse(nombre, cmd):
 async def main():
     cmd1 = (b'GET /api/v2/markets/eth-btc HTTP/1.1\r\nHost: www.buda.com\r\n\r\n')
     cmd2 = (b'GET /api/v2/currencies/eth/fees/deposit HTTP/1.0\r\nHost: www.buda.com\r\n\r\n')
-    cmd3 = (b'GET /api/v2/markets/btc-clp/order_book HTTP/1.0\r\nHost: www.buda.com\r\n\r\n')
+    cmd3 = (b'GET /api/v2/markets/btc-clp/trades HTTP/1.0\r\nHost: www.buda.com\r\n\r\n')
     task1 = asyncio.create_task(conectarse('eth-btc.txt', cmd1))
     task2 = asyncio.create_task(conectarse('eth-fees.txt', cmd2))
-    task3 = asyncio.create_task(conectarse('btc-clp-order-book.txt', cmd3))
+    task3 = asyncio.create_task(conectarse('btc-clp-trades.txt', cmd3))
 
 asyncio.run(main())
