@@ -4,7 +4,7 @@ from os import chdir
 #HTTPS
 import ssl
 
-chdir ('/home/camilo/Documentos/Python')
+chdir ('/home/camilo/Documentos/Python/Parcial1/Buda')
 
 HOST = 'www.buda.com'
 PORT = 443#HTTPS

@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Date: Sat, 06 Nov 2021 23:00:15 GMT
+Content-Type: application/json; charset=utf-8
+Connection: close
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+etag: W/"2a81fe8a230638362a0bb9932c70598e"
+cache-control: max-age=0, private, must-revalidate
+x-runtime: 0.014090
+x-request-id: d667a3ff-a5b6-46d9-b9f3-e15cff8b3380
+x-envoy-upstream-service-time: 21
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Set-Cookie: __cf_bm=UkZ_wnItl6IN_AhUismFW_Vb1.Zq8E3CV8wzrlXS0mY-1636239615-0-AQdlowvNarb2EXvMw8Jdxm4Rt38peofiwftkpKXsHmoAasMfOApubTsCbBGNmT2CJR5zXYwftL/xU4zS4ahAtO8=; path=/; expires=Sat, 06-Nov-21 23:30:15 GMT; domain=.buda.com; HttpOnly; Secure
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Server: cloudflare
+CF-RAY: 6aa1efdbd9e63ef0-BOG
+
+{"fee":{"name":"deposit","percent":0,"base":["0.0","ETH"]}}

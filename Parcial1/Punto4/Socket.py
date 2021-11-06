@@ -6,7 +6,7 @@ HOST = '127.0.0.1'
 PORT = 65432
 
 #directorio
-os.chdir('/home/camilo/Documentos/Python')
+os.chdir('/home/camilo/Documentos/Python/Parcial1/Punto4')
 
 async def descifrar(a):
     a = a.decode('utf-8')

@@ -5,12 +5,12 @@ import asyncio
 HOST = '127.0.0.1'
 PORT = 65432
 
-dir = '/home/camilo/Documentos/Python'
+dir = '/home/camilo/Documentos/Python/Parcial1/Punto4'
 os.chdir(dir)
-#Crea el archivo que va a pasar al cliente
-with open('archivo.txt','w') as fp:
-    pass
-    fp.write("Crear archivo")
+#Crea un archivo que va a pasar al cliente
+#with open('archivo.txt','w') as fp:
+#    pass
+#    fp.write("Crear archivo")
 
 #Lee la dirección del directorio y scanea archivos .txt
 async def codificar():
@@ -23,7 +23,7 @@ async def codificar():
 										#Añade el nombre de los archivos y el contenido separado por ###
                     a = a + entry.name + '###' + fp.read()+ '###'
     #Convierte a bytes con encriptacion utf-8
-	a = bytes(a,'utf-8')
+    a = bytes(a,'utf-8')
     return a
 
 async def enviar():

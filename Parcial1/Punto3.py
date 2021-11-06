@@ -67,6 +67,5 @@ async def connect():
                     print("Conexión terminada")
                     break
 
-
 print("Esperando conexión")
 asyncio.run(connect())

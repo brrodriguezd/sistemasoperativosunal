@@ -5,7 +5,7 @@ import asyncio
 HOST = '127.0.0.1'  # The server's hostname or IP address
 PORT = 65432        # The port used by the server
 
-chdir('/home/camilo/Documentos/Python')
+chdir('/home/camilo/Documentos/Python/Parcial1/Punto4/FTP')
 
 #Descifra los bytes que llegan
 async def descifrar(a):
@@ -17,7 +17,7 @@ async def descifrar(a):
 async def escribir(data):
     info = data.split('###')
     for i in range (0,len(info)-1,2):
-        with open(info[1], 'w') as fp:
+        with open(info[i], 'w') as fp:
             pass
             fp.write(info[i+1])
         

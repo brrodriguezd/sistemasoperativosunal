@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+Date: Sat, 06 Nov 2021 23:00:15 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+etag: W/"47baf307f927bf6a585d1983720d99b2"
+cache-control: max-age=0, private, must-revalidate
+x-runtime: 0.007659
+x-request-id: 252784cf-e14e-4967-b24e-932851f78321
+x-envoy-upstream-service-time: 14
+CF-Cache-Status: DYNAMIC
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Set-Cookie: __cf_bm=ZFq5h7fdffhZgaMIoiCiG7.E6BYOzB0YsifOBRjgQ5s-1636239615-0-AZ4hxAx56aTAP8x10u68JkUZ8T+pdRyEtjw1oEKvc42DtCvdtvO12Qk12QFfFzQjhT1ohy1iAhcx8amybRGuUX0=; path=/; expires=Sat, 06-Nov-21 23:30:15 GMT; domain=.buda.com; HttpOnly; Secure
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Server: cloudflare
+CF-RAY: 6aa1efdb0a9f3f15-BOG
+
+b6
+{"market":{"id":"ETH-BTC","name":"eth-btc","base_currency":"ETH","quote_currency":"BTC","minimum_order_amount":["0.001","ETH"],"disabled":false,"illiquid":false,"rpo_disabled":null}}
+0
+
