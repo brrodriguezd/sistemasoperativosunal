@@ -4,7 +4,7 @@ import asyncio
 import ssl
 
 HOST = 'www.buda.com'
-PORT = 80
+PORT = 443
 context = ssl.create_default_context()
 
 with open('buda.txt', 'w') as fp:
