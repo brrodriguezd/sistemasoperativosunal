@@ -1,40 +1,44 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov  4 16:14:10 2021
-
-@author: camil
-"""
-
 import socket
 import asyncio
 from os import chdir
 #HTTPS
 import ssl
 
-chdir ('D:/Estudio/Python')
+chdir ('/home/camilo/Documentos/Python')
 
 HOST = 'www.buda.com'
-PORT = 443
-context = ssl.create_default_context()
+PORT = 443#HTTPS
+context = ssl.create_default_context() 
 
-with open('buda.txt', 'w') as fp:
-    pass
-a = ("GET /api/v2/markets HTTP/1.1\r\nHost: www.buda.com\r\n\r\n")
-a = a.encode()
-
-with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
-    print('connecting')
-    with context.wrap_socket(s, server_hostname=HOST) as ssock:
-        ssock.connect((HOST,PORT))
-        print('connected')
-        ssock.send(a)
-        print('sending')
-        while True:
-            data = ssock.recv(1024)
-            print(data)
-            with open('buda.txt', 'a') as fp:
+async def conectarse(nombre, cmd):
+    rec = ""
+    with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
+        print('connecting')
+        with context.wrap_socket(s, server_hostname=HOST) as ssock:
+            ssock.connect((HOST,PORT))
+            print('connected')
+            ssock.send(cmd)
+            #print('send')
+            while True:
+                data = ssock.recv(1024)
+                #print (data)
+                #decodifica y almacena
+                rec = rec + data.decode('utf-8')
+                #Fin del mensaje http 1.1, 1.0
+                if data == b'0\r\n\r\n' or not data:
+                    break
+            #guarda en un .txt
+            with open(nombre, 'w') as fp:
                 pass                
-                fp.write(str(data))
-            if not data:
-                break
-        print ("conexión terminada")
+                fp.write(rec)
+            print ("conexión terminada")
+
+async def main():
+    cmd1 = (b'GET /api/v2/markets/eth-btc HTTP/1.1\r\nHost: www.buda.com\r\n\r\n')
+    cmd2 = (b'GET /api/v2/currencies/eth/fees/deposit HTTP/1.0\r\nHost: www.buda.com\r\n\r\n')
+    cmd3 = (b'GET /api/v2/markets/btc-clp/order_book HTTP/1.0\r\nHost: www.buda.com\r\n\r\n')
+    task1 = asyncio.create_task(conectarse('eth-btc.txt', cmd1))
+    task2 = asyncio.create_task(conectarse('eth-fees.txt', cmd2))
+    task3 = asyncio.create_task(conectarse('btc-clp-order-book.txt', cmd3))
+
+asyncio.run(main())
