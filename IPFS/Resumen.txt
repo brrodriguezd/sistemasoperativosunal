@@ -1,2 +1,21 @@
-El IPFS(InterPlanetary file system) es un protocolo y red, que crea un metodo p2p, es un sistema rápido par compartir archivos anónimamente usando los recursos de los usuarios como nodos, no requiere un cliente, solo requiere una URL, esta URL es el hash del archivo, por lo tanto si hay usuarios con archivos repetidos ambos soportarán el mismo enlace, los archivos relevantes se guardarán en varios nodos, pero si dejan de ser usados solo estarán presentes en la máquina original, al guardar elementos en varios nodos hace casi imposible la censura de archivos subidos. 
-La distribución de contenido descentralizada ahorra ancho de banda y previene ataques DDoS.
+<!DOCTYPE html> <!--declaration: this is an html5 document-->
+<html lang="es"> <!--hyper text markup language-->
+	<head>
+		<meta charset="utf-8"/>
+		<title>IPFS</title>
+	</head>
+	<body style = "background-color:black">
+		<h1 style="text-align: center; color:orangered; font-size:40px;"><!--from 1 to 6, 1 most important-->
+			<i><ins>Resumen</ins></i> <!--emp emphasis--> <!--hsla(hue, color wheel, saturation, lightness, alpha)-->
+		</h1>
+		<p style="color:orange;">El IPFS(InterPlanetary file system) es un protocolo y red, 
+			que crea un metodo p2p, es un sistema rápido par compartir archivos anónimamente 
+			usando los recursos de los usuarios como nodos, no requiere un cliente, solo requiere una URL, 
+			esta URL es el hash del archivo, por lo tanto si hay usuarios con archivos repetidos ambos 
+			soportarán el mismo enlace, los archivos relevantes se guardarán en varios nodos, 
+			pero si dejan de ser usados solo estarán presentes en la máquina original, 
+			al guardar elementos en varios nodos hace casi imposible la censura de archivos subidos. 
+			La distribución de contenido descentralizada ahorra ancho de banda y previene ataques DDoS.</p> 
+		<!--cat FILE | ipfs files write --create /NAME-->
+	</body>
+</html>
