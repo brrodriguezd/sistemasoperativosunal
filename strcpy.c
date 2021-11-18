@@ -9,7 +9,7 @@ void so_strcpy(char str1[], char str2[]){
 int main()
 {
     char string[] = "cadena 1";
-    char string2[sizeof(string)];
+    char string2[sizeof(string)]; 
     so_strcpy(string, string2);
     printf("El string2 es %s", string2);
     return 0;
