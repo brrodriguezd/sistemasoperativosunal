@@ -3,3 +3,5 @@ docker pull brrodriguezd/nodejsimage:latest
 
 Correr en el puerto 80 con nombre chatcord 
 docker run --name chatcord -p 80:3000 -d brrodriguezd/nodejsimage
+
+node:17-alpine
