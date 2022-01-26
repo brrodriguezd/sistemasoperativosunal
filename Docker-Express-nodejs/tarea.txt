@@ -10,4 +10,5 @@ systemctl start docker
 systemctl enable docker 
 systemctl stop docker
 systemctl restart docker
+docker stop streamapp; docker rm streamapp; docker rmi brrodriguezd/streamapp
 */
