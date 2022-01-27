@@ -1,1 +1,13 @@
+Descargar el docker:
+docker pull brrodriguezd/streamapp:latest
 
+Correr en el puerto 80 con nombre streamapp 
+docker run --name streamapp -p 80:80 -d brrodriguezd/streamapp
+
+/*
+node:current-alpine
+nginx:alpine
+systemctl start docker;systemctl enable docker 
+docker stop streamapp; docker rm streamapp; docker rmi brrodriguezd/streamapp
+systemctl stop docker;systemctl restart docker
+*/
