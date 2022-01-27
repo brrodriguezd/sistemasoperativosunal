@@ -8,5 +8,5 @@ docker run --name chatcord -p 80:3000 -d brrodriguezd/nodejsimage
 node:17-alpine
 systemctl start docker;systemctl enable docker 
 systemctl stop docker;systemctl restart docker
-docker stop streamapp; docker rm streamapp; docker rmi brrodriguezd/streamapp
+docker stop chatcord; docker rm chatcord; docker rmi brrodriguezd/chatcord
 */
