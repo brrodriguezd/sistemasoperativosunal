@@ -1,2 +1,19 @@
-<h1>Listado de Precio de Bitcoin</h1>
-<app-api></app-api>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+    h1{
+        text-align: center;
+        margin: 30px;
+    }
+</style>
+<div class="w3-cell-row">
+    <div class="w3-conteiner w3-cell w3-cell-middle">
+        <h1>USD: ${{ dolar | async }} </h1>
+    </div>
+    <div class="w3-conteiner w3-cell w3-cell-middle">
+        <h1>GBP: &pound;{{ libra | async }} </h1>
+    </div>
+    <div class="w3-conteiner w3-cell w3-cell-middle">
+        <h1>EURO: &euro;{{ euro | async }} </h1>
+    </div>
+</div>
