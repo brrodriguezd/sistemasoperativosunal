@@ -9,4 +9,5 @@ node:17-alpine
 systemctl start docker;systemctl enable docker 
 systemctl stop docker;systemctl restart docker
 docker stop chatcord; docker rm chatcord; docker rmi brrodriguezd/chatcord
+docker rm -vf $(docker ps -aq);docker rmi -f $(docker images -aq)
 */
