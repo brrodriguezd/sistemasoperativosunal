@@ -1,0 +1,14 @@
+version: '2' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  angular: # name of the first service
+    build: Triqui # specify the directory of the Dockerfile
+    ports:
+      - "8080:8080" # specify port forewarding
+
+  express: #name of the second service
+    build: Express # specify the directory of the Dockerfile
+    ports:
+      - "3000:3000" #specify ports forwarding
+
